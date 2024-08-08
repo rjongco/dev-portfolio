@@ -1,113 +1,152 @@
+'use client'
+import Canvas from "@/components/ui/Canvas";
+import Container from "@/components/ui/Container";
+import Content from "@/components/ui/Content";
+import Decoder from "@/components/ui/Decoder";
+import Heading from "@/components/ui/Heading";
+import Hr from "@/components/ui/Hr";
+import Layer from "@/components/ui/Layer";
+import Subheading from "@/components/ui/Subheading";
 import Image from "next/image";
 
 export default function Home() {
+  const Frameworks = [
+    {
+      title: 'Next.js',
+      icon: 'nextjs-icon.svg'
+    },
+    {
+      title: 'Typescript',
+      icon: 'typescript.png'
+    },
+    {
+      title: 'React',
+      icon: 'react.svg'
+    },
+    {
+      title: 'Vue.js',
+      icon: 'vue.svg'
+    },
+    {
+      title: 'Node.js',
+      icon: 'node-js.png'
+    },
+    {
+      title: 'Tailwindcss',
+      icon: 'tailwindcss.svg'
+    },
+    {
+      title: 'Framer',
+      icon: 'framer-motion.svg'
+    },
+    {
+      title: 'Wordpress',
+      icon: 'wordpress.svg'
+    },
+    {
+      title: 'CodeIgniter',
+      icon: 'codeigniter.svg'
+    },
+    {
+      title: '.Net framework',
+      icon: 'dotnet.svg'
+    }
+  ]
+
+  const Tools = [
+    {
+      title: 'Docker',
+      icon: 'docker.svg'
+    },
+    {
+      title: 'MongoDB',
+      icon: 'MongoDB_Logomark_ForestGreen.svg'
+    },
+    {
+      title: 'Firebase',
+      icon: 'firebase.svg'
+    },
+    {
+      title: 'Gitlab',
+      icon: 'gitlab.svg'
+    },
+    {
+      title: 'Github',
+      icon: 'github-142.svg'
+    },
+    {
+      title: 'SQL Server',
+      icon: 'sql.svg'
+    },
+    {
+      title: 'Google Cloud',
+      icon: 'google_cloud-icon.svg'
+    }
+  ]
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
+    <main className="flex relative min-h-screen min-w-screen flex-col items-center p-2 justify-start">
+      <Layer className="flex justify-center items-center bg-gradient-caramel">
+      </Layer>
+      {/* Header */}
+      <Container className="flex flex-col justify-start items-center h-auto z-10 p-6"
+        initial={{
+          x:20,
+          opacity: 0
+        }}
+        animate={{
+          x:0,
+          opacity: 1
+        }}
+        transition={{ duration: 0.4 }} 
+      >
+        <Canvas className="flex flex-col justify-center items-start">
+          <Decoder text={'Rafael jongco'} delay={500} className="tracking-[0.8em] spacing uppercase text-base h-[30px]" start={true}/>
+          <Heading className="text-5xl font-bold">Full Stack Developer</Heading>
+          <Heading className="text-5xl font-bold">Next.js</Heading>
+          <Content className="text-md mt-2 font-medium">I'm a professional full-stack developer specializing in creating high-performing and scalable applications.</Content>
+        </Canvas>
+        <Container className="flex flex-col justify-start items-start w-full h-auto gap-4">
+          <Subheading className="text-3xl font-bold flex">
+            About Me
+            <Hr className="w-20"/>
+          </Subheading>
+          <Container className="flex flex-col gap-9 items-start justify-start">
+            <Container className="flex flex-col gap-3">
+              <Content>Hello, I'm Rafael Jongco, a Software Developer based in Manila, Philippines, currently working at Katana. My interest in programming began in high school and became a natural skill during college. </Content>
+              <Content>After graduating, I quickly adapted to developing industrial-grade applications. My first project was a Management Information System, which taught me optimal and scalable coding, and deepened my understanding of databases and ORMs.</Content>
+              <Content>Later, I focused on web applications, honing my UI/UX design skills and adopting a mobile-first approach to ensure responsive and well-designed websites. This experience in both backend and frontend development makes me confident in delivering high-quality products that exceed client expectations.</Content>
+              <Content>I am always excited about new ideas and projects. If you have an interesting concept or need a dedicated developer, feel free to drop me a line.</Content>
+            </Container>
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+            className="self-center"
+            src={'/profile.jpg'}
+            alt={'...'}
+            priority={true}
+            width={500}
+            height={50}
+            ></Image>
+          </Container>
+        </Container>
+        <Container className="flex flex-col my-48 items-center gap-3">
+          <Subheading className="text-3xl font-bold flex">
+            My Frameworks and Tools
+            <Hr className="w-20"/>
+          </Subheading>
+          <Container>
+            <Content>
+              There are several frameworks and tools that I can use with proficiency.
+            </Content>
+          </Container>
+        </Container>
+        <Container className="flex flex-col my-48 items-center gap-4">
+          <Subheading className="text-3xl font-bold flex">
+            My Experience
+            <Hr className="w-20"/>
+          </Subheading>
+        </Container>
+      </Container>
+      
+    
     </main>
   );
 }
