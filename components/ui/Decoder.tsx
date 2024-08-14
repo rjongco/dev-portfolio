@@ -2,7 +2,8 @@
 import Hidden from '@/components/ui/Hidden';
 import { useReducedMotion, useSpring } from 'framer-motion';
 import { DetailedHTMLProps, HTMLAttributes, MutableRefObject, memo, useEffect, useRef } from 'react';
-import { cn, delay } from '@/lib/utils';
+import { cn } from '@/lib/utils/helper';
+import { delay } from '@/components/animations';
 
 // prettier-ignore
 const glyphs = [
@@ -104,5 +105,8 @@ const Decoder = memo(
   }
 );
 
-
+/**
+ * usage
+ * <Decoder text={'Rafael jongco'} delay={500} className="tracking-[0.8em] spacing uppercase text-base h-[30px]" start={true}/>
+ */
 export default Decoder;

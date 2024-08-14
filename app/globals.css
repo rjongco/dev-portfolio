@@ -4,61 +4,29 @@
 
 @layer base {
   :root {
-    --background: #e8e8e8;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --radius: 0.5rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    --color-bg: #e8e8e8;
+    --color-bg-secondary: #ef4444; 
+    --color-accent: #0ea5e9; 
+    --color-accent-light: rgba(14, 165, 233, 0.1); 
+    --color-accent-torch: rgba(29, 78, 216, 0.15); 
+    --color-text: #181818;
+    --color-text-1: #6d6d6d;
+    --color-dark-1: #0f172a;
+    --color-dark-2: #334155;  
+    --color-dark-3: #cbd5e1; 
   }
-  
 
-  @media (prefers-color-scheme: system) {
-    :root {
-      --background: 0 0% 3.9%;
-      --foreground: 0 0% 98%;
-      --card: 0 0% 3.9%;
-      --card-foreground: 0 0% 98%;
-      --popover: 0 0% 3.9%;
-      --popover-foreground: 0 0% 98%;
-      --primary: 0 0% 98%;
-      --primary-foreground: 0 0% 9%;
-      --secondary: 0 0% 14.9%;
-      --secondary-foreground: 0 0% 98%;
-      --muted: 0 0% 14.9%;
-      --muted-foreground: 0 0% 63.9%;
-      --accent: 0 0% 14.9%;
-      --accent-foreground: 0 0% 98%;
-      --destructive: 0 62.8% 30.6%;
-      --destructive-foreground: 0 0% 98%;
-      --border: 0 0% 14.9%;
-      --input: 0 0% 14.9%;
-      --ring: 0 0% 83.1%;
-      --chart-1: 220 70% 50%;
-      --chart-2: 160 60% 45%;
-      --chart-3: 30 80% 55%;
-      --chart-4: 280 65% 60%;
-      --chart-5: 340 75% 55%;
-    }
+
+  .dark {
+    --color-bg: #0f172a; 
+    --color-bg-secondary: #1e293b;
+    --color-accent: #38bdf8; 
+    --color-accent-light: rgba(56, 189, 248, 0.1);
+    --color-text: #a0a0a0;
+    --color-dark-1: #e2e8f0;
+    --color-dark-2: #cbd5e1;
+    --color-dark-3: #334155;
+    --textlight: 'color-mix(in lab, var(--black) 55%, transparent)';
   }
 
   @font-face {
@@ -88,7 +56,18 @@
     font-style: normal;
     font-weight: normal;
   }
-  
+  @font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/gotham-medium.woff2') format('woff2');
+    font-style: normal;
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: 'Gotham Thin';
+    src: url('/fonts/gotham-book.woff2') format('woff2');
+    font-style: normal;
+    font-weight: thin;
+  }
   @font-face {
     font-family: 'Gotham Medium Italic';
     src: url('/fonts/gotham-medium-italic.woff2') format('woff2');
@@ -158,14 +137,18 @@
     font-style: normal;
     font-weight: 100; /* Thin */
   }
+  @font-face {
+    font-family: "AgustinaSignature";
+    src: url("/fonts/Agustina-Signature.otf") format('opentype');
+  }
 }
 
 @layer base {
-  * {
-    @apply border-border;
+  * { 
+    @apply focus:outline-dashed outline-[3px] outline-offset-4 outline-accent;
   }
-  body {
-    @apply bg-background text-foreground;
+  ::selection {
+    @apply dark:bg-slate-600/30 bg-slate-400/30 text-accent;
   }
 }
 
@@ -185,5 +168,50 @@
       white-space: nowrap;
       word-wrap: normal;
     }
+  }
+  .heading-secondary,
+  .h2 {
+    @apply text-3xl sm:text-4xl capitalize font-medium mb-8 sm:mb-12 text-dark-2;
+  }
+  .heading-tertiary,
+  .h3 {
+    @apply text-xl sm:text-2xl tracking-wide capitalize font-medium text-dark-2;
+  }
+  @keyframes introLine {
+    0% {
+      transform: scaleX(0);
+      opacity: 1;
+    }
+  
+    100% {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+  .hero-line {
+    content: '';
+    height: 2px;
+    background: var(--color-text-1);
+    width: 120%;
+    display: flex;
+    margin-left: 20px;
+    animation-duration: 0.8s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: 'cubic-bezier(0.4, 0.0, 0.2, 1)';
+    transform-origin: left;
+    opacity: 0;
+    position: relative;
+    top: 0.05em;
+    animation-name: introLine;
   }
 }
