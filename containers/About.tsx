@@ -19,51 +19,22 @@ const About = () => {
   }, []);
 
   return domLoaded ? (
-    <Wrapper id="about" {...getSectionAnimation}>
+    <Wrapper id="about" {...getSectionAnimation} className='lg:w-4/5 flex flex-col self-center'>
       <h2 className="heading-secondary">{title}</h2>
-      <main className="flex flex-col items-center gap-16 lg:items-start lg:flex-row">
-        <div className="space-y-4 lg:w-3/5">
+      <main className="flex flex-col items-center gap-16 lg:items-start lg:flex-row justify-between">
+        <div className="space-y-4 basis-3/5">
           <p>
-            Hi, my name is Vatsal Singh, a first-year MCA student at{' '}
-            <Link
-              href="https://bhu.ac.in/"
-              target="_blank"
-              className="text-accent"
-            >
-              Banaras Hindu University
-            </Link>
-            .<br /> I'm an Artist as well as crazy full stack web developer who
-            wants to explore every tech stack.
+          Hi, my name is Rafael Jongco, and I’m a professional software developer based in Manila, Philippines. I hold a Bachelor’s degree in Information & Communication Technology. With over 4 years of experience, I’ve worked with various businesses and used a range of languages and frameworks, making programming as natural to me as swimming is to a swimmer. I have experience in developing diverse applications, scripts, websites, systems, and services, making me a versatile developer. 
+          <br/><br/>
+          Currently, my work is focused on web development. I am presently employed at {' '}
+          <Link
+          href='https://www.katanatechworks.com'
+          >
+          @Katana
+          </Link> as a lead developer for an overseas client. I am always excited about bringing new ideas to life, so if you have one, feel free to reach out!
           </p>
-          <p>
-            Fast-forward to today, and I've had the privilege of working at a
-            start-up -{' '}
-            <Link
-              href="https://www.pixelwand.live/"
-              target="_blank"
-              className="text-accent"
-            >
-              Pixelwand
-            </Link>
-            .
-          </p>
-          <p>
-            My main focus these days is learning mobile development and finding
-            a decent job.
-          </p>
-
-          {list && (
-            <>
-              <p>{list.title}</p>
-              <ul className="grid w-2/3 grid-cols-2 gap-1 text-sm">
-                {list.items.map((item) => (
-                  <ListItem key={getId()}>{item}</ListItem>
-                ))}
-              </ul>
-            </>
-          )}
         </div>
-        <AuthorImage src={img} alt={author.name} />
+        <AuthorImage src={'/profile.jpg'} alt={author.name} />
       </main>
     </Wrapper>
   ) : (

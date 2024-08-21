@@ -2,14 +2,11 @@
 import useWindowWidth from '@/lib/hooks/use-window-width';
 import { getBreakpointsWidth } from '@/lib/utils/helper';
 
-import { Button, Decoder, Wrapper } from '@/components';
+import { Decoder, SubHeading, Wrapper } from '@/components';
 
 import { slideUp } from '@/components/animations';
 
-import { motion } from 'framer-motion';
-import { resumeFileName } from '@/lib/utils/config';
-import Typewriter from '@/components/ui/Typerwriter';
-import { useEffect } from 'react';
+import { motion } from 'framer-motion'; 
 
 const Hero = () => {
 
@@ -19,9 +16,6 @@ const Hero = () => {
 
   const getAnimationDelay = (i: number, increment = 0.15) =>
     DEFAULT_ANIMATION_DELAY + increment * i;
-  useEffect(()=>{
-    console.log('shit', status)
-  },[status])
   return (
     <Wrapper
       id="hero"
@@ -39,12 +33,13 @@ const Hero = () => {
         >
           {`Developer`}
         </motion.h1>
-        <Typewriter
+        {/* <Typewriter
           variants={slideUp({ delay: getAnimationDelay(2) })}
           initial="hidden"
           animate="show"
           className="capitalize mb-2 leading-[1.1] text-8xl"
-        ></Typewriter>
+        ></Typewriter> */}
+        <SubHeading></SubHeading>
    
       </div>
 

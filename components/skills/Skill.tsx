@@ -24,7 +24,7 @@ const Skill = ({
 }: Props) => {
   return (
     <motion.div
-      className={`flex gap-8 sm:gap-10 flex-col lg:flex-row items-center ${className}`}
+      className={`flex gap-8 sm:gap-10 flex-col lg:flex-row items-start ${className}`}
       {...rest}
     >
       {/* Left */}
@@ -38,12 +38,6 @@ const Skill = ({
             <SkillIcon key={getId()} src={icon} name={name} />
           ))}
         </div>
-
-        <ul className="space-y-2 text-base">
-          {points.map((point) => (
-            <ListItem key={getId()}>{point}</ListItem>
-          ))}
-        </ul>
       </div>
       {/* Right */}
       <ShowLottie path={lottie} className="md:min-h-[448px] md:min-w-[448px]" />

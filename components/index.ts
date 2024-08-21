@@ -17,6 +17,8 @@ import Sidebar from './ui/Sidebar';
 import Wrapper from './ui/Wrapper';
 import Hidden from './ui/Hidden';
 import Decoder from './ui/Decoder';
+import BoxReveal from './ui/Boxreveal';
+import SubHeading from './ui/SubHeading';
 
 export {
   AuthorImage,
@@ -36,5 +38,7 @@ export {
   TabList,
   Wrapper,
   Hidden,
-  Decoder
+  Decoder,
+  BoxReveal,
+  SubHeading
 };
