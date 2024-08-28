@@ -3,22 +3,15 @@
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { cn } from "@/lib/utils/helper";
+import React from "react";
 
-interface BoxRevealProps{
+interface BoxRevealProps extends React.HTMLAttributes<HTMLDivElement>{
   children: React.ReactNode;
   className: string;
-  width?: "fit-content" | "100%";
 }
 
-export const rawBoxReveal = ({
-  children,
-  className,
-  width = "fit-content",  
-}: BoxRevealProps) => { 
+export const rawBoxReveal = React.forwardRef<HTMLDivElement, BoxRevealProps>(({children, className, ...props}, ref) => { 
   const slideControls = useAnimation();
-
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
     const startAnimation = async () => {
@@ -34,7 +27,7 @@ export const rawBoxReveal = ({
   }, [slideControls]);
 
   return (
-    <div ref={ref} style={{ position: "relative", width, overflow: "hidden" }} className={cn(className)}>
+    <div ref={ref} className={cn('relative w-fit overflow-hidden',className)} {...props}>
       <motion.div
         variants={{
           in: { visibility: 'hidden' },
@@ -69,8 +62,7 @@ export const rawBoxReveal = ({
       />
     </div>
   );
-};
-
+});
 const BoxReveal = motion(rawBoxReveal);
 
 export default BoxReveal;

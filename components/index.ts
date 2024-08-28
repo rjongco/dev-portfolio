@@ -19,6 +19,8 @@ import Hidden from './ui/Hidden';
 import Decoder from './ui/Decoder';
 import BoxReveal from './ui/Boxreveal';
 import SubHeading from './ui/SubHeading';
+import TechCloud from './ui/TechCloud';
+import { Timeline } from './ui/Timeline';
 
 export {
   AuthorImage,
@@ -40,5 +42,7 @@ export {
   Hidden,
   Decoder,
   BoxReveal,
-  SubHeading
+  SubHeading,
+  TechCloud,
+  Timeline
 };

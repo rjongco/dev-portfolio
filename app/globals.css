@@ -213,5 +213,16 @@
     position: relative;
     top: 0.05em;
     animation-name: introLine;
+  } 
+  #tech-cloud-global canvas{ 
+    max-width: 70vw !important; 
+    transform: translate(70%, -30%);
+  }
+  .magnifier{
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(2);
+    transform-origin: center center; /* Ensure scaling is from the center */
+  pointer-events: none; /* Allow clicks to pass through */
+  transform: translate(-50%, -50%) scale(2); /* Center and scale */
   }
 }
