@@ -12,7 +12,7 @@ import {
 
 export const cloudProps: Omit<ICloud, "children"> = {
   containerProps: {
-    id: 'tech-cloud-global',
+    id: 'tech-cloud-global'
   },
   options: {
     reverse: true,
@@ -21,7 +21,7 @@ export const cloudProps: Omit<ICloud, "children"> = {
     imageScale: 2.5,
     activeCursor: "default",
     tooltip: "native",
-    initial: [0.1, -0.1],
+    initial: [0.4, 0.1],
     clickToFront: 500,
     tooltipDelay: 0,
     outlineColour: "#0000",

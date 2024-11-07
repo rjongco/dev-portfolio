@@ -57,7 +57,7 @@ const Skills = () => {
   return (
     <Wrapper id="skills" {...getSectionAnimation}>
       <h2 className="text-center heading-secondary">{title}</h2>
-      <div className='flex flex-row flex-wrap gap-24'>
+      <div className='flex flex-col xl:flex-row flex-wrap gap-24'>
         {
           skills.frameworks && 
           <div className='flex flex-col gap-10 basis-full'>

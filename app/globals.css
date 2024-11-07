@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --color-bg: #e8e8e8;
+    --color-bg: #ffffff;
     --color-bg-secondary: #d5d0e5; 
     --color-accent: #d5d0e5; 
     --color-accent-light: rgba(14, 165, 233, 0.1); 
@@ -214,10 +214,44 @@
     top: 0.05em;
     animation-name: introLine;
   } 
-  #tech-cloud-global canvas{ 
-    max-width: 70vw !important; 
-    transform: translate(70%, -30%);
+  /* mobile phones */
+  #tech-cloud-global canvas{
+    height: 100vh;
+    max-height: 100%;
+    width: 200vw !important;
   }
+  @media only screen and (min-width: 412px) {
+    #tech-cloud-global canvas{
+      transform: translate(10%);
+    }
+  }
+  /* ipad */
+  @media only screen and (min-width: 480px) { 
+    #tech-cloud-global canvas{
+      transform: translate(20%);
+    }
+  }
+  /* ipad */
+  @media only screen and (min-width: 576px) { 
+    #tech-cloud-global canvas{
+      transform: translate(30%);
+    }
+  }
+  /* ipad */
+  @media only screen and (min-width: 640px) { 
+    #tech-cloud-global canvas{
+      transform: translate(45%);
+    }
+  }
+  /* PC */
+  @media only screen and (min-width: 768px) { 
+    #tech-cloud-global canvas{
+      height: 100%;
+      max-width: 70vw !important; 
+      transform: translate(70%, -30%);
+    }
+  }
+  
   .magnifier{
     background: rgba(255, 255, 255, 0.3);
     transform: scale(2);

@@ -75,6 +75,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <script src="/scripts/no-flash.js" async />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body className={`text-text bg-bg ${fontVariables}`}>
         {/* <Cursor className="hidden dark:lg:block" /> */}
