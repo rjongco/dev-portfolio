@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 const Subheading = () => {
 
-  const texts = ["Designer", "Maintainer", "Prototyper"];
+  const texts = ["Designer", "Maintainer", "Tester"];
 
   const durationPerText = 4; //sec
   const textExitDuration = 0.2; //sec

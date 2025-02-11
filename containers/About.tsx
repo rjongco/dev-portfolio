@@ -24,7 +24,7 @@ const About = () => {
       <main className="flex flex-col items-center gap-16 lg:items-start lg:flex-row justify-between font-gotham-thin">
         <div className="space-y-4 basis-3/5">
           <p>
-          Hi, my name is Rafael Jongco, and I’m a professional software developer based in Manila, Philippines. I hold a Bachelor’s degree in Information & Communication Technology. With over 4 years of experience, I’ve worked with various businesses and used a range of languages and frameworks, and has a solid experience in developing diverse applications, websites, systems, and services, making me confident at my work. 
+          Hi, my name is Rafael Jongco, and I’m a professional software developer based in Manila, Philippines. I hold a Bachelor’s degree in Information & Communication Technology. With over 5 years of experience, I’ve worked with various businesses and used a range of languages and frameworks, and has a solid experience in developing diverse applications, websites, systems, and services, making me confident at my work. 
           <br/><br/>
           Currently, my work is focused on web development. I am presently employed at {' '}
           <Link

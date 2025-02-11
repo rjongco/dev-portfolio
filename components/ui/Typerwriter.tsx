@@ -10,7 +10,7 @@ const Typewriter = React.forwardRef<HTMLHeadingElement, HTMLMotionProps<"h1">>((
   const [typingSpeed, setTypingSpeed] = useState(60);
   const [itemSpeed, setItemSpeed] = useState(1000);
 
-  const words = ["Designer", "Maintainer", "Prototyper"];
+  const words = ["Designer", "Maintainer", "Tester"];
 
   useEffect(() => {
     const handleType = () => {

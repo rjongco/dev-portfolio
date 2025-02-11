@@ -36,7 +36,10 @@ const Hero = () => {
     'php',
     'python',
     'pytorch',
-    'cplusplus'
+    'cplusplus',
+    'ionic',
+    'android',
+    'sqlite'
   ];
 
   const windowWidth = useWindowWidth();

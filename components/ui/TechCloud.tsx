@@ -37,8 +37,8 @@ export const cloudProps: Omit<ICloud, "children"> = {
 export const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
   const bgHex = theme === "light" ? "#f3f2ef" : "#080510";
   const fallbackHex = theme === "light" ? "#6e6e73" : "#ffffff";
-  const minContrastRatio = theme === "dark" ? 2 : 0;
-
+  const minContrastRatio = theme === "dark" ? 2 : 1.2;
+  
   return renderSimpleIcon({
     icon,
     bgHex,
@@ -60,26 +60,25 @@ export type DynamicCloudProps = {
 
 type IconData = Awaited<ReturnType<typeof fetchSimpleIcons>>;
 
+
+
 export default function TechCloud({ iconSlugs }: DynamicCloudProps) {
-  const [data, setData] = useState<IconData | null>(null);
   const { isDarkMode } = useTheme();
 
-  useEffect(() => {
-    fetchSimpleIcons({ slugs: iconSlugs }).then(setData);
-  }, [iconSlugs]);
-
-  const renderedIcons = useMemo(() => {
-    if (!data) return null;
-
-    return Object.values(data.simpleIcons).map((icon) =>
-      renderCustomIcon(icon, isDarkMode? 'dark' : "light"),
-    );
-  }, [data, isDarkMode]);
-
+  const useIcons = (slugs: string[]) => {
+    const [icons, setIcons] = useState<IconData | null>();
+    useEffect(() => {fetchSimpleIcons({slugs}).then(setIcons)}, [])
+    if (icons) {
+      return Object.values(icons.simpleIcons).map((icon) => renderCustomIcon(icon, isDarkMode? 'dark' : "light"))
+    }
+    
+    return <a>Loading</a>
+  }
+  const redIcons = useIcons(iconSlugs);
   return (
     // @ts-ignore
     <Cloud {...cloudProps}>
-      <>{renderedIcons}</>
+      <>{redIcons}</>
     </Cloud>
   );
 }

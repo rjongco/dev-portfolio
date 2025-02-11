@@ -28,6 +28,7 @@ const config: Config = {
         incognito: ['Incognito', 'sans-serif'], // Reference the defined Incognito font family
         'ipa-gothic': ['IPA Gothic', 'sans-serif'],
         'signature': ['AgustinaSignature', 'sans-serif'],
+        'signature2': ['Motterdam', 'sans-serif'],
         sans: ['Inter', 'sans-serif'],
         mono: ['Roboto Mono', 'monospace']
       },

@@ -7,33 +7,34 @@
 import { StringKeyValueType } from '../types';
 
 export const socialLinks: StringKeyValueType = {
-  facebook: 'https://www.facebook.com/vatsalsinghkv',
-  instagram: 'https://www.instagram.com/vatsalsinghkv',
-  twitter: 'https://twitter.com/vatsalsinghkv',
-  github: 'https://github.com/vatsalsinghkv',
-  linkedin: 'https://www.linkedin.com/in/vatsalsinghkv/',
+  facebook: 'https://www.facebook.com/rjinovino',
+  instagram: 'https://www.instagram.com/its.not.raf',
+  github: 'https://github.com/rjongco',
+  linkedin: 'https://www.linkedin.com/in/rafaeljongco/',
 };
 
 export const author = {
-  name: 'Vatsal Singh',
-  email: 'vatsalsinghkv@gmail.com',
+  name: 'Rafael Jongco',
+  icon: 'RafaelJ',
+  email: 'rj.inovino@gmail.com',
 };
 
 export const seoData = {
-  title: 'Vatsal Singh | Front-End Developer',
+  title: 'Rafael Jongco | Software Developer',
   description:
-    'Vatsal Singh is a front-end developer who specializes in building (and occasionally designing) exceptional visual interfaces.',
+    'Rafael Jongco is a Software developer who specializes in building and designing functional applications and systems.',
   author: author.name,
   image:
     '/tumblr.gif',
-  url: 'https://vatsalsinghkv.vercel.app/',
+  url: 'https://rafaeljongco.com',
   keywords: [
-    'Vatsal',
-    'Vatsal Singh',
-    '@vatsalsinghkv',
-    'vatsalsinghkv',
+    'Rafael',
+    'Rafael Jongco',
+    '@its.not.raf',
+    'rjinovino',
     'Portfolio',
-    'Vatsal Portfolio ',
-    'Vatsal Singh Portfolio',
+    'rafael Portfolio ',
+    'rjongco',
+    'Rafael Jongco Portfolio',
   ],
 };

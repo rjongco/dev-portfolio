@@ -5,8 +5,8 @@
 @layer base {
   :root {
     --color-bg: #ffffff;
-    --color-bg-secondary: #d5d0e5; 
-    --color-accent: #d5d0e5; 
+    --color-bg-secondary: #d5d0e5; /*highlight color*/
+    --color-accent: #181818; /*text color when highlighted*/
     --color-accent-light: rgba(14, 165, 233, 0.1); 
     --color-accent-torch: rgba(29, 78, 216, 0.15); 
     --color-text: #181818;
@@ -140,6 +140,10 @@
   @font-face {
     font-family: "AgustinaSignature";
     src: url("/fonts/Agustina-Signature.otf") format('opentype');
+  }
+  @font-face {
+    font-family: "Motterdam";
+    src: url("/fonts/Motterdam-MVanr.otf") format('opentype');
   }
 }
 

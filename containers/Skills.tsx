@@ -14,10 +14,11 @@ const Skills = () => {
     skills: {
       'frameworks': [
           // iconify icons: https://icon-sets.iconify.design/
-          { name: 'react js', icon: '/react.svg' },
-          { name: 'next js', icon: 'logos:nextjs-icon' },
-          { name: 'node js', icon: '/node-js.png' },
-          { name: 'vue js', icon: 'devicon:vuejs' },
+          { name: 'react', icon: '/react.svg' },
+          { name: 'next', icon: 'logos:nextjs-icon' },
+          { name: 'node', icon: '/node-js.png' },
+          { name: 'ionic', icon: 'devicon:ionic' },
+          { name: 'vue', icon: 'devicon:vuejs' },
           { name: '.net framework', icon: '/dotnet.svg' },
           { name: 'wordpress', icon: '/wordpress.svg' },
           { name: 'codeigniter', icon: '/codeigniter.svg' },
@@ -29,6 +30,7 @@ const Skills = () => {
         { name: 'prisma', icon: 'logos:prisma' },
         { name: 'mongodb', icon: 'devicon:mongodb' },
         { name: 'mssql', icon: '/sql.svg' },
+        { name: 'sqlite', icon: 'devicon:sqlite' },
       ],
       'languages':[
         {
@@ -37,7 +39,7 @@ const Skills = () => {
         },
         { name: 'Javascript', icon: 'logos:javascript' },
         { name: 'C#', icon: 'devicon:csharp' },
-        { name: 'C#', icon: 'devicon:cplusplus' },
+        { name: 'C++', icon: 'devicon:cplusplus' },
         { name: 'PHP', icon: 'logos:php' },
         { name: 'Python', icon: 'logos:python' },
       ],
@@ -48,6 +50,7 @@ const Skills = () => {
         { name: 'Visual studio', icon: 'devicon:visualstudio' },
         { name: 'google cloud', icon: '/google_cloud-icon.svg' },
         { name: 'framer', icon: '/framer-motion.svg' },
+        { name: 'android studio', icon: 'devicon:androidstudio' },
       ]
     }
   }
