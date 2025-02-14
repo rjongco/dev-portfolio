@@ -1,5 +1,4 @@
 'use client';
-import { useTheme } from '@/lib/hooks/use-theme';
 import Image from 'next/image';
 import { Skill, Wrapper } from '@/components';
 
@@ -55,7 +54,6 @@ const Skills = () => {
     }
   }
   const { title, skills } = skillsSection;
-  const { isDarkMode } = useTheme();
 
   return (
     <Wrapper id="skills" {...getSectionAnimation}>
@@ -64,12 +62,12 @@ const Skills = () => {
         {
           skills.frameworks && 
           <div className='flex flex-col gap-10 basis-full'>
-            <h3 className='text-center heading-tertiary font-gotham-medium'>Frameworks</h3>
+            <h3 className='text-center heading-tertiary font-neue-medium'>Frameworks</h3>
             <div className='flex flex-wrap justify-center gap-4'>
             {
               skills.frameworks.map(({name, icon})=>(
                 <motion.div
-                className='flex flex-col gap-2 justify-center items-center font-gotham-thin whitespace-nowrap min-w-[145px]'
+                className='flex flex-col gap-2 justify-center items-center font-neue-thin whitespace-nowrap min-w-[145px]'
                 key={getId()}
                 whileHover={{ scale: 1.2 }}
                 onHoverStart={e => {}}
@@ -85,12 +83,12 @@ const Skills = () => {
         {
           skills.databases && 
           <div className='flex flex-col gap-10 basis-[45%]'>
-            <h3 className='text-center heading-tertiary font-gotham-medium'>Databases</h3>
+            <h3 className='text-center heading-tertiary font-neue-medium'>Databases</h3>
             <div className='flex flex-wrap justify-center gap-8'>
             {
               skills.databases.map(({name, icon})=>(
                 <motion.div
-                className='flex flex-col gap-2 justify-center items-center font-gotham-thin whitespace-nowrap flex-1'
+                className='flex flex-col gap-2 justify-center items-center font-neue-thin whitespace-nowrap flex-1'
                 key={getId()}
                 whileHover={{ scale: 1.2 }}
                 onHoverStart={e => {}}
@@ -106,12 +104,12 @@ const Skills = () => {
         {
           skills.devops && 
           <div className='flex flex-col gap-10 basis-[45%]'>
-            <h3 className='text-center heading-tertiary font-gotham-medium'>DevOps & Tools</h3>
+            <h3 className='text-center heading-tertiary font-neue-medium'>DevOps & Tools</h3>
             <div className='flex flex-wrap justify-center gap-8'>
             {
               skills.devops.map(({name, icon})=>(
                 <motion.div
-                className='flex flex-col gap-2 justify-center items-center font-gotham-thin whitespace-nowrap flex-1'
+                className='flex flex-col gap-2 justify-center items-center font-neue-thin whitespace-nowrap flex-1'
                 key={getId()}
                 whileHover={{ scale: 1.2 }}
                 onHoverStart={e => {}}
@@ -127,12 +125,12 @@ const Skills = () => {
         {
           skills.languages && 
           <div className='flex flex-col gap-10 basis-full'>
-            <h3 className='text-center heading-tertiary font-gotham-medium'>Languages</h3>
+            <h3 className='text-center heading-tertiary font-neue-medium'>Languages</h3>
             <div className='flex flex-wrap justify-center gap-8'>
             {
               skills.languages.map(({name, icon})=>(
                 <motion.div
-                className='flex flex-col gap-2 justify-center items-center font-gotham-thin whitespace-nowrap flex-1'
+                className='flex flex-col gap-2 justify-center items-center font-neue-thin whitespace-nowrap flex-1'
                 key={getId()}
                 whileHover={{ scale: 1.2 }}
                 onHoverStart={e => {}}

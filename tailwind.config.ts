@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { DarkModeConfig } from "tailwindcss/types/config";
 
 const config: Config = {
   content: [
@@ -11,26 +12,11 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        'gotham-bold-italic': ['Gotham Bold Italic', 'sans-serif'],
-        'gotham-bold': ['Gotham Bold', 'sans-serif'],
-        'gotham-book-italic': ['Gotham Book Italic', 'sans-serif'],
-        'gotham-book': ['Gotham Book', 'sans-serif'],
-        'gotham': ['Gotham', 'sans-serif'],
-        'gotham-thin': ['Gotham Thin', 'sans-serif'],
-        'gotham-medium-italic': ['Gotham Medium Italic', 'sans-serif'],
-        'gotham-medium': ['Gotham Medium', 'sans-serif'],
-        'pp-neue-montreal-bold': ['PP Neue Montreal Bold', 'sans-serif'],
-        'pp-neue-montreal-book': ['PP Neue Montreal Book', 'sans-serif'],
-        'pp-neue-montreal-italic': ['PP Neue Montreal Italic', 'sans-serif'],
-        'pp-neue-montreal-medium': ['PP Neue Montreal Medium', 'sans-serif'],
-        'pp-neue-montreal-semibold-italic': ['PP Neue Montreal SemiBold Italic', 'sans-serif'],
-        'pp-neue-montreal-thin': ['PP Neue Montreal Thin', 'sans-serif'],
-        incognito: ['Incognito', 'sans-serif'], // Reference the defined Incognito font family
-        'ipa-gothic': ['IPA Gothic', 'sans-serif'],
         'signature': ['AgustinaSignature', 'sans-serif'],
         'signature2': ['Motterdam', 'sans-serif'],
-        sans: ['Inter', 'sans-serif'],
-        mono: ['Roboto Mono', 'monospace']
+        sans: ['Neue Montreal','Inter', 'sans-serif'],
+        mono: ['Neue Montreal Mono', 'Roboto Mono', 'monospace'],
+        neue: ['Neue Montreal', 'sans-serif']
       },
       screens: {
         xs: '375px',
@@ -59,6 +45,7 @@ const config: Config = {
         'auto-250': 'repeat(auto-fill, minmax(250px, 1fr))',
       },
       backgroundImage: {
+        bg: 'var(--color-bg)',
         torch:
           'radial-gradient(525px at 50% 50%, var(--color-accent-torch), transparent 80%)',
       },
