@@ -8,7 +8,7 @@ const Subheading = () => {
   const texts = ["Designer", "Maintainer", "Tester"];
 
   const durationPerText = 4; //sec
-  const textExitDuration = 0.5; //sec
+  const textExitDuration = 0.2; //sec
   // State to manage the current index and the current text
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [currentText, setCurrentText] = useState<string>(texts[0]);
@@ -28,11 +28,15 @@ const Subheading = () => {
   }, []);
   return (
     <BoxReveal 
-    initial={{ clipPath: 'inset(0 0 0 0)' }}
-    animate={{ clipPath: 'inset(0 0 0 100%)' }}
-    transition={{ delay: durationPerText - textExitDuration, duration: textExitDuration, ease: "easeInOut"}}
+    initial={{
+      opacity:1
+    }}
+    animate={{
+        opacity:0
+    }}
+    transition={{ delay: durationPerText - textExitDuration, duration: textExitDuration, ease: "easeIn"}}
     key={currentIndex} 
-    className='capitalize mb-2 leading-[1.1] text-8x tracking-normal overflow-hidden'
+    className='capitalize mb-2 leading-[1.1] text-8x tracking-normal'
     >
     <span className={'mr-[4px] text-light-1'}>+</span>
     {currentText}
