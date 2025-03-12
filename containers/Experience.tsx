@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { getSectionAnimation } from '@/components/animations';
 import { motion } from 'framer-motion';
 import { useDB } from '@/lib/hooks/use-db';
+import { getId } from '@/lib/utils/helper';
 
 const Experience = () => {
   const data = useDB()
@@ -13,7 +14,7 @@ const Experience = () => {
       content: (
         <div key={`exp-section-${row.order}`}>
           {
-            row.desc.map((d: string) => (<p dangerouslySetInnerHTML={{ __html: d }} key={`exp-desc-${row.order}`} className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4"></p>))
+            row.desc.map((d: string) => (<p dangerouslySetInnerHTML={{ __html: d }} key={getId()} className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4"></p>))
           }
           <div className="">
             <Image
