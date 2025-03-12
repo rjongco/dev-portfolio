@@ -1,3 +1,4 @@
+'use client'
 import { Email, Footer, Navbar, Social } from '@/containers';
 
 type Props = {
@@ -6,6 +7,7 @@ type Props = {
 };
 
 const Layout = ({ children, className = '' }: Props) => {
+
   return (
     <div className={className}>
       <Navbar />

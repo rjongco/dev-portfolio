@@ -1,7 +1,6 @@
 'use client';
-import { projectsSection } from '@/lib/content/projects';
 import { PROJECTS_INITIALLY } from '@/lib/utils/config';
-import { sortByYear } from '@/lib/utils/helper';
+import { getId, sortByYear } from '@/lib/utils/helper';
 
 import { Button, ProjectCard, Wrapper } from '@/components';
 
@@ -9,9 +8,14 @@ import { getSectionAnimation, projectVariants } from '@/components/animations';
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { useDB } from '@/lib/hooks/use-db';
 
 const Projects = () => {
-  const { projects, title } = projectsSection;
+  const data = useDB()
+    const projects = data.personal_projects.map((row:any) => ({
+      id: getId(),
+      ...row
+  }))
   const [showMore, setShowMore] = useState(false);
   const topProjects = projects.slice(0, PROJECTS_INITIALLY);
 
@@ -20,7 +24,7 @@ const Projects = () => {
   return (
     <Wrapper animate={false} {...getSectionAnimation}>
       <motion.h2 className="heading-secondary text-center !mb-12">
-        {title}
+        {`My Personal Projects`}
       </motion.h2>
       <div className="grid gap-6 grid-cols-auto-250 xs:grid-cols-auto-300 place-items-center">
         {sortByYear(visibleProjects).map((project, i) => {

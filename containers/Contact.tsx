@@ -1,11 +1,11 @@
-import { contactSection } from '@/lib/content/contact';
-
 import { Button, Wrapper } from '@/components';
 
 import { getSectionAnimation } from '@/components/animations';
+import { useDB } from '@/lib/hooks/use-db';
 
 const Contact = () => {
-  const { subtitle, title, paragraphs, link } = contactSection;
+  const data = useDB()
+  const author = data.author
   return (
     <Wrapper
       id="contact"
@@ -13,15 +13,12 @@ const Contact = () => {
       {...getSectionAnimation}
     >
       <p className="mb-3 font-mono text-sm capitalize text-accent">
-        {subtitle}
+        {"what's next"}
       </p>
-      <h2 className="heading-secondary !mb-5">{title}</h2>
+      <h2 className="heading-secondary !mb-5">{"get in touch"}</h2>
+      <div dangerouslySetInnerHTML={{ __html: author.spill }}></div>
 
-      {paragraphs.map((paragraph, i) => (
-        <p key={i}>{paragraph}</p>
-      ))}
-
-      <Button type="link" size="lg" href={link} center className="mt-12">
+      <Button type="link" size="lg" href={`mailto:${author.email}`} center className="mt-12">
         Say Hello
       </Button>
     </Wrapper>

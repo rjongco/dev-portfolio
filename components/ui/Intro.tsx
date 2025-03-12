@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils/helper";
 import { motion } from "framer-motion"
 import React, { useState } from "react"
 import { fadeOut } from "../animations";
-import { author } from "@/lib/content/portfolio";
+import { useDB } from "@/lib/hooks/use-db";
 
 interface IntroComponentProps extends React.HTMLAttributes<HTMLDivElement> {
     state: string
@@ -12,6 +12,8 @@ interface IntroComponentProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const Intro = React.forwardRef<HTMLDivElement, IntroComponentProps>(({children, className, state, ...props}, ref) => 
 {   
+    const data = useDB()
+    const author = data.author
     const [destroyed, setdestroyed] = useState<boolean>(false)
     const trigger = (state === 'entered')
     const delay = 1

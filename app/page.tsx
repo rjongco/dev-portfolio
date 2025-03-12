@@ -12,7 +12,6 @@ import {
 } from '@/containers';
 import Layer from '@/containers/layer';
 import { cn } from '@/lib/utils/helper';
-import { author } from '@/lib/content/portfolio';
 import type { NextPage } from 'next';
 import { Intro } from '@/components';
 

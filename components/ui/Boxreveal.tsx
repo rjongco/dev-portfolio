@@ -49,6 +49,7 @@ export const rawBoxReveal = React.forwardRef<HTMLDivElement, BoxRevealProps>(({c
         }}
         initial="in"
         animate={slideControls}
+        id="subtitle-mask"
         transition={{ duration: 0.5, ease: "easeIn" }}
         style={{
           position: "absolute",

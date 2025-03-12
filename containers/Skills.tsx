@@ -6,58 +6,22 @@ import { getSectionAnimation } from '@/components/animations';
 import { getId } from '@/lib/utils/helper';
 import { Icon } from '@iconify/react/dist/iconify.js';
 import { motion } from 'framer-motion';
+import { useDB } from '@/lib/hooks/use-db';
 
 const Skills = () => {
-  const skillsSection = {
-    title: 'what i use',
-    skills: {
-      'frameworks': [
-          // iconify icons: https://icon-sets.iconify.design/
-          { name: 'react', icon: '/react.svg' },
-          { name: 'next', icon: 'logos:nextjs-icon' },
-          { name: 'node', icon: '/node-js.png' },
-          { name: 'ionic', icon: 'devicon:ionic' },
-          { name: 'vue', icon: 'devicon:vuejs' },
-          { name: '.net framework', icon: '/dotnet.svg' },
-          { name: 'wordpress', icon: '/wordpress.svg' },
-          { name: 'codeigniter', icon: '/codeigniter.svg' },
-          { name: 'tailwindcss', icon: 'logos:tailwindcss-icon' },
-          { name: 'tensorflow', icon: 'logos:tensorflow' },
-        ],
-      'databases': [
-        { name: 'firebase', icon: '/firebase.svg' },
-        { name: 'prisma', icon: 'logos:prisma' },
-        { name: 'mongodb', icon: 'devicon:mongodb' },
-        { name: 'mssql', icon: '/sql.svg' },
-        { name: 'sqlite', icon: 'devicon:sqlite' },
-      ],
-      'languages':[
-        {
-          name: 'Typescript',
-          icon: 'vscode-icons:file-type-typescript-official',
-        },
-        { name: 'Javascript', icon: 'logos:javascript' },
-        { name: 'C#', icon: 'devicon:csharp' },
-        { name: 'C++', icon: 'devicon:cplusplus' },
-        { name: 'PHP', icon: 'logos:php' },
-        { name: 'Python', icon: 'logos:python' },
-      ],
-      'devops': [
-        { name: 'figma', icon: 'logos:figma' },
-        { name: 'git', icon: 'devicon:git' },
-        { name: 'docker', icon: '/docker.svg' },
-        { name: 'Visual studio', icon: 'devicon:visualstudio' },
-        { name: 'google cloud', icon: '/google_cloud-icon.svg' },
-        { name: 'framer', icon: '/framer-motion.svg' },
-        { name: 'android studio', icon: 'devicon:androidstudio' },
-      ]
-    }
+  // iconify icons: https://icon-sets.iconify.design/
+  const data = useDB();
+  
+  const skills = {
+    'frameworks': data.frameworks,
+    'databases': data.databases,
+    'languages':data.languages,
+    'devops': data.tools
   }
-  const { title, skills } = skillsSection;
 
   return (
     <Wrapper id="skills" {...getSectionAnimation}>
-      <h2 className="text-center heading-secondary">{title}</h2>
+      <h2 className="text-center heading-secondary">{'what i use'}</h2>
       <div className='flex flex-col xl:flex-row flex-wrap gap-24'>
         {
           skills.frameworks && 
@@ -65,7 +29,7 @@ const Skills = () => {
             <h3 className='text-center heading-tertiary font-neue-medium'>Frameworks</h3>
             <div className='flex flex-wrap justify-center gap-4'>
             {
-              skills.frameworks.map(({name, icon})=>(
+              skills.frameworks.map(({name, icon}: {name: string, icon: string})=>(
                 <motion.div
                 className='flex flex-col gap-2 justify-center items-center font-neue-thin whitespace-nowrap min-w-[145px]'
                 key={getId()}
@@ -86,7 +50,7 @@ const Skills = () => {
             <h3 className='text-center heading-tertiary font-neue-medium'>Databases</h3>
             <div className='flex flex-wrap justify-center gap-8'>
             {
-              skills.databases.map(({name, icon})=>(
+              skills.databases.map(({name, icon}: {name: string, icon: string})=>(
                 <motion.div
                 className='flex flex-col gap-2 justify-center items-center font-neue-thin whitespace-nowrap flex-1'
                 key={getId()}
@@ -107,7 +71,7 @@ const Skills = () => {
             <h3 className='text-center heading-tertiary font-neue-medium'>DevOps & Tools</h3>
             <div className='flex flex-wrap justify-center gap-8'>
             {
-              skills.devops.map(({name, icon})=>(
+              skills.devops.map(({name, icon}: {name: string, icon: string})=>(
                 <motion.div
                 className='flex flex-col gap-2 justify-center items-center font-neue-thin whitespace-nowrap flex-1'
                 key={getId()}
@@ -128,7 +92,7 @@ const Skills = () => {
             <h3 className='text-center heading-tertiary font-neue-medium'>Languages</h3>
             <div className='flex flex-wrap justify-center gap-8'>
             {
-              skills.languages.map(({name, icon})=>(
+              skills.languages.map(({name, icon}: {name: string, icon: string})=>(
                 <motion.div
                 className='flex flex-col gap-2 justify-center items-center font-neue-thin whitespace-nowrap flex-1'
                 key={getId()}

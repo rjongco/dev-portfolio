@@ -3,9 +3,12 @@
 import { BoxReveal } from '@/components'; 
 import { useEffect, useState } from 'react';
 
-const Subheading = () => {
+export type SubheadingProps = {
+  list: string[];
+};
+const Subheading = ({ list }: SubheadingProps) => {
 
-  const texts = ["Designer", "Maintainer", "Tester"];
+  const texts = list;
 
   const durationPerText = 4; //sec
   const textExitDuration = 0.2; //sec
@@ -38,7 +41,7 @@ const Subheading = () => {
     key={currentIndex} 
     className='capitalize mb-2 leading-[1.1] text-8x tracking-normal'
     >
-    <span className={'mr-[4px] text-light-1'}>+</span>
+    <span className={'mr-[4px] text-light-1 lowercase'}>for&nbsp;</span>
     {currentText}
   </BoxReveal>
   );

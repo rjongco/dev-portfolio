@@ -16,7 +16,8 @@ const config: Config = {
         'signature2': ['Motterdam', 'sans-serif'],
         sans: ['Neue Montreal','Inter', 'sans-serif'],
         mono: ['Neue Montreal Mono', 'Roboto Mono', 'monospace'],
-        neue: ['Neue Montreal', 'sans-serif']
+        neue: ['Neue Montreal', 'sans-serif'],
+        pureSans: ['poppins', 'sans-serif']
       },
       screens: {
         xs: '375px',

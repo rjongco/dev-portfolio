@@ -1,8 +1,10 @@
-import { author } from '@/lib/content/portfolio';
 
 import { Sidebar, SocialLink } from '@/components';
+import { useDB } from '@/lib/hooks/use-db';
 
 const Email = () => {
+  const data = useDB()
+  const author = data.author
   return (
     <Sidebar side="right">
       <SocialLink
