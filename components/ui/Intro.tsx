@@ -27,7 +27,7 @@ const Intro = React.forwardRef<HTMLDivElement, IntroComponentProps>(({children, 
     initial={trigger ? "show" : false}
     animate={trigger ? "hidden" : false}
     onAnimationComplete={handleAnimationComplete}
-    className={cn(`!z-[9999] flex items-center justify-center bg-bg font-sans text-4xl !tracking-wider fixed`, className)}>
+    className={cn(`!z-[9999] flex flex-col md:flex-row items-center justify-center bg-bg font-sans text-4xl !tracking-wider fixed`, className)}>
             <motion.span
               variants={trigger ? fadeOut(delay-0.25, duration) : undefined}
               initial={trigger ? "show" : false}

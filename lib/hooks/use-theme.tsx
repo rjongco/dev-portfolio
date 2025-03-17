@@ -31,7 +31,7 @@ export default function ThemeProvider({
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
     // Check system preference for dark mode using matchMedia
     if (typeof window !== 'undefined') {
-      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const systemPrefersDark = false;
       const userPrefersDark = JSON.parse(localStorage.getItem('darkMode') || `${systemPrefersDark}`) ? true : false
       if(userPrefersDark === systemPrefersDark){
         localStorage.removeItem('darkMode')
