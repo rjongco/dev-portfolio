@@ -15,7 +15,7 @@
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.24",
     "mongoose": "^8.12.1",
-    "next": "^15.5.9",
+    "next": "^14.2.35",
     "react": "^18",
     "react-dom": "^18",
     "react-icon-cloud": "^4.1.5",
