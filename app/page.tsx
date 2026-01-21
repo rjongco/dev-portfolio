@@ -10,8 +10,10 @@ import {
   Projects,
   Skills,
 } from '@/containers';
-
+import Layer from '@/containers/layer';
+import { cn } from '@/lib/utils/helper';
 import type { NextPage } from 'next';
+import { Intro } from '@/components';
 
 /**
  * TODO: Create separate page for all the projects with filters (vercel | netlify | github api for automation)
@@ -21,34 +23,37 @@ import type { NextPage } from 'next';
 
 const Home: NextPage = () => {
   return (
-    <>
-      <Layout className='flex flex-col'>
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <FeaturedProjects />
-        <Projects />
-        <Contact />
-      </Layout>
-    </>
-    // <Transition in timeout={0}>
-    //     {({ visible, status }:{visible:boolean, status:string, nodeRef:React.MutableRefObject<HTMLElement | null>}) => 
-    //       (
-    //       <>
-    //         <Layout>
-    //           <Hero />
-    //           <About />
-    //           <Skills />
-    //           <Experience />
-    //           <FeaturedProjects />
-    //           <Projects />
-    //           <Contact />
-    //         </Layout>
-    //       </>
-    //       )
-    //     }
-    // </Transition>
+    // <>
+    //   <Layout className='flex flex-col'>
+    //     <Hero />
+    //     <About />
+    //     <Skills />
+    //     <Experience />
+    //     <FeaturedProjects />
+    //     <Projects />
+    //     <Contact />
+    //   </Layout>
+    // </>
+    <Transition in timeout={0}>
+        {({ visible, status }:{visible:boolean, status:string, nodeRef:React.MutableRefObject<HTMLElement | null>}) => 
+          {
+            return (
+              <>
+                <Intro state={status}/>
+                <Layout className=''>
+                  <Hero />
+                  <About />
+                  <Skills />
+                  <Experience />
+                  <FeaturedProjects />
+                  <Projects />
+                  <Contact />
+                </Layout>
+              </>
+              )
+          }
+        }
+    </Transition>
   );
 };
 

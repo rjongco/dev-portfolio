@@ -1,105 +1,93 @@
 'use client';
 import { TabList, Timeline } from '@/components';
 import Image from 'next/image';
-import { experienceSection } from '../lib/content/experience';
 import { getSectionAnimation } from '@/components/animations';
 import { motion } from 'framer-motion';
+import { useDB } from '@/lib/hooks/use-db';
+import { getId } from '@/lib/utils/helper';
 
 const Experience = () => {
-  const data = [
-    {
-      title: "2024",
+  const data = useDB()
+  const exp = data.experience.map((row: any) => {
+    return {
+      title: row.title,
       content: (
-        <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Built and launched Aceternity UI and Aceternity UI Pro from scratch
-          </p>
-          <div className="grid grid-cols-2 gap-4">
-            <Image
-              src="/tumblr.gif"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-          </div>
+        <div key={`exp-section-${row.order}`}>
+          {
+            row.desc.map((d: string) => (<p dangerouslySetInnerHTML={{ __html: d }} key={getId()} className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4"></p>))
+          }
+          {row.image && (
+            <div className="">
+              <Image
+                src={row.image}
+                alt={row.title}
+                width={1024}
+                height={1024}
+                className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+              />
+            </div>
+          )}
         </div>
-      ),
-    },
+      )
+    }
+  })
+  let experience = [
     {
-      title: "Early 2023",
-      content: (
-        <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            I usually run out of copy, but when I see content this big, I try to
-            integrate lorem ipsum.
-          </p>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Lorem ipsum is for people who are too lazy to write copy. But we are
-            not. Here are some more example of beautiful designs I built.
-          </p>
-          <div className="grid grid-cols-2 gap-4">
-          <Image
-              src="/tumblr.gif"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="/tumblr.gif"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-          </div>
-        </div>
-      ),
-    },
-    {
-      title: "Changelog",
+      title: "Present",
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-            Deployed 5 new components on Aceternity today
+          Currently working as a Software Developer at <strong>Katana Techworks Inc.</strong> I've been with the team for over two and a half years now, having joined in June 2022.
           </p>
-          <div className="mb-8">
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-              ✅ Card grid component
-            </div>
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-              ✅ Startup template Aceternity
-            </div>
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-              ✅ Random file upload lol
-            </div>
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-              ✅ Himesh Reshammiya Music CD
-            </div>
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-              ✅ Salman Bhai Fan Club registrations open
-            </div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+          During my time here, I have handled around 4 projects in total: 2 are already in production, 1 is currently in a closed demo phase, and 1 is ongoing in development. Our work setup is mostly remote, with occasional office meetups in a month.
+          </p>
+          <div className="">
+            <Image
+              src="/katana.gif"
+              alt="katana techworks com"
+              width={1024}
+              height={1024}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
           </div>
-          <div className="grid grid-cols-2 gap-4">
+        </div>
+      ),
+    },
+    {
+      title: "June 2022",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+          <strong>Empire East Land Holdings Inc.</strong>, a real estate company, is where I worked after finishing my degree. I was hired in February 2020 and worked with them for over two years as a System Developer.
+          </p>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+          My role here is to maintain existing applications and develop new ones. Most of the time, the apps I work on are related to reports, directories, and CRMs.
+          </p>
+          <div className="">
           <Image
-              src="/tumblr.gif"
+              src="/eelhiexp.jpg"
               alt="startup template"
               width={500}
               height={500}
               className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
             />
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "December 2019",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+          I worked at <strong>Synthesis</strong> as an undergraduate intern. My role as a developer was to maintain and update the company's official website and address issues related to their VoIP application. I was hired in May 2019 and worked with them for over six months as part of the internship contract.
+          </p>
+          <div className="">
           <Image
-              src="/tumblr.gif"
+              src="/synthesis.jpg"
               alt="startup template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-          <Image
-              src="/tumblr.gif"
-              alt="startup template"
-              width={500}
+              width={1024}
               height={500}
               className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
             />
@@ -114,8 +102,8 @@ const Experience = () => {
       className="max-w-3xl py-32 mx-auto"
       {...getSectionAnimation}
     >
-      <h2 className="heading-secondary">{experienceSection.title}</h2>
-      <Timeline data={data} />
+      <h2 className="heading-secondary">{`where i've worked`}</h2>
+      <Timeline data={exp} />
     </motion.section>
   );
 };

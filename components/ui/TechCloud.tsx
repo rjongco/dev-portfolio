@@ -60,8 +60,6 @@ export type DynamicCloudProps = {
 
 type IconData = Awaited<ReturnType<typeof fetchSimpleIcons>>;
 
-
-
 export default function TechCloud({ iconSlugs }: DynamicCloudProps) {
   const { isDarkMode } = useTheme();
 

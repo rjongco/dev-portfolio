@@ -1,6 +1,4 @@
 'use client';
-import { navbarSection } from '@/lib/content/navbar';
-import { author } from '@/lib/content/portfolio';
 import useWindowWidth from '@/lib/hooks/use-window-width';
 import { getBreakpointsWidth } from '@/lib/utils/helper';
 
@@ -11,6 +9,7 @@ import { fadeIn, slideIn } from '@/components/animations';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { useDB } from '@/lib/hooks/use-db';
 
 /**
  * Hides the navbar while scrolling down
@@ -72,7 +71,16 @@ const NavItem = ({ href, children, onClick, index, delay }: NavItemsProps) => {
 };
 
 const Navbar = () => {
-  const { cta, navLinks } = navbarSection;
+  const data = useDB()
+  const author = data.author
+  const resumelink = author.resume
+  const navLinks = [
+    { name: 'about', url: '/#about' },
+    { name: 'skills', url: '/#skills' },
+    { name: 'experience', url: '/#experience' },
+    { name: 'projects', url: '/#projects' },
+    { name: 'contact', url: '/#contact' },
+  ]
   const [navbarCollapsed, setNavbarCollapsed] = useState(false);
 
   const windowWidth = useWindowWidth();
@@ -122,11 +130,10 @@ const Navbar = () => {
             ))}
 
             <div className="flex items-center justify-between gap-5 xl:gap-6">
-              {cta && (
                 <Button
                   type="link"
-                  href={cta.url}
-                  sameTab={cta?.sameTab}
+                  href={resumelink}
+                  sameTab={false}
                   variants={slideIn({
                     delay: ANIMATION_DELAY + navLinks.length / 10,
                     direction: 'down',
@@ -134,9 +141,8 @@ const Navbar = () => {
                   initial="hidden"
                   animate="show"
                 >
-                  {cta.title}
+                  {`Resume`}
                 </Button>
-              )}
               <DarkModeButton
                 onClick={() => setNavbarCollapsed(false)}
                 variants={slideIn({

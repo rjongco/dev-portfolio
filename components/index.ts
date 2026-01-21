@@ -21,6 +21,7 @@ import BoxReveal from './ui/Boxreveal';
 import SubHeading from './ui/SubHeading';
 import TechCloud from './ui/TechCloud';
 import { Timeline } from './ui/Timeline';
+import Intro from './ui/Intro';
 
 export {
   AuthorImage,
@@ -44,5 +45,6 @@ export {
   BoxReveal,
   SubHeading,
   TechCloud,
-  Timeline
+  Timeline,
+  Intro
 };

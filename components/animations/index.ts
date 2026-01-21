@@ -7,7 +7,7 @@ import { Variants } from 'framer-motion';
  * @param {number} [delay=0] - in seconds
  * @returns {Variants} Variants
  */
-export const fadeIn = (delay = 0): Variants => ({
+export const fadeIn = (delay = 0, duration=1.25): Variants => ({
   hidden: {
     opacity: 0,
   },
@@ -15,11 +15,31 @@ export const fadeIn = (delay = 0): Variants => ({
     opacity: 1,
     transition: {
       type: 'spring',
-      duration: 1.25,
+      duration,
       delay,
     },
   },
 });
+
+/**
+ * Make component fade out from opacity 1 to opacity 0
+ * @param {number} [delay=0] - in seconds
+ * @returns {Variants} Variants
+ */
+export const fadeOut = (delay = 0, duration=1.25): Variants => ({
+  show: {
+    opacity: 1,
+  },
+  hidden: {
+    opacity: 0,
+    transition: {
+      type: 'spring',
+      duration,
+      delay,
+    },
+  },
+});
+
 
 /**
  * Makes component slide in from given direction

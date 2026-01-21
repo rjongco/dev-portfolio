@@ -66,7 +66,7 @@ const ProjectCard = ({
           </div>
           <h4 className="flex justify-between font-medium capitalize duration-200 group-hover:text-accent">
             <span>{name}</span>
-            <span className="mr-1">{year}</span>
+            {/* <span className="mr-1">{year}</span> */}
           </h4>
         </div>
       </button>
