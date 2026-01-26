@@ -89,7 +89,7 @@ const FeaturedProject = ({
               <div className="hidden my-3 font-mono text-xs capitalize lg:block text-accent lg:my-2 lg:mt-3">
                 tasks / achievements
               </div>
-              <div className="hidden text-base lg:block lg:text-sm">
+              <div className="hidden text-base lg:block lg:text-sm whitespace-pre-wrap">
                 {tasks}
               </div>
             </div>
