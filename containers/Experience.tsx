@@ -45,6 +45,7 @@ const Experience = () => {
           <div className="">
             <Image
               src="/katana.gif"
+              unoptimized={true}
               alt="katana techworks com"
               width={1024}
               height={1024}

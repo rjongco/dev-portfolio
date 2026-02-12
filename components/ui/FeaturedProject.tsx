@@ -25,6 +25,7 @@ const FeaturedProject = ({
   return (
     <>
       <motion.div
+        suppressHydrationWarning={true}
         className={cn(
           'relative hidden lg:block  min-h-[280px] sm:min-h-[360px] h-full overflow-hidden lg:overflow-visible rounded-lg lg:rounded-xl shadow-lg lg:shadow-none text-center lg:text-right',
           align === 'left' && 'lg:text-left'
@@ -41,6 +42,7 @@ const FeaturedProject = ({
           <Image
             src={img}
             alt={name}
+            unoptimized={name.includes('.gif') ? true : false}
             width={720}
             height={480}
             className="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105"
@@ -134,6 +136,7 @@ const FeaturedProject = ({
 
       {/* For mobile */}
       <motion.div
+        suppressHydrationWarning={true}
         className={cn(
           'relative lg:hidden min-h-[300px] h-full rounded-xl shadow-lg lg:shadow-none text-center'
         )}
@@ -144,6 +147,7 @@ const FeaturedProject = ({
           <Image
             src={img}
             alt={name}
+            unoptimized={name.includes('.gif') ? true : false}
             width={720}
             height={480}
             className="object-cover w-full h-full transition-transform duration-200 group-hover:scale-105"
