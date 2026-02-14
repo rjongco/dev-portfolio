@@ -23,6 +23,7 @@ import SubHeading from './ui/SubHeading';
 // import TechCloud from './ui/TechCloud';
 import { Timeline } from './ui/Timeline';
 import Intro from './ui/Intro';
+import Chatbot from './ui/Chatbot';
 
 const TechCloud = dynamic(() => import('./ui/TechCloud'), { 
   ssr: false 
@@ -34,6 +35,7 @@ const ShowLottie = dynamic(() => import('./ui/ShowLottie'), {
 export {
   AuthorImage,
   Button,
+  Chatbot,
   Cursor,
   DarkModeButton,
   Link,

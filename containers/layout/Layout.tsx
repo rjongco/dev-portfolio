@@ -1,5 +1,6 @@
 'use client'
 import { Email, Footer, Navbar, Social } from '@/containers';
+import { Chatbot, Sidebar } from '@/components';
 
 type Props = {
   children: React.ReactNode;
@@ -19,6 +20,11 @@ const Layout = ({ children, className = '' }: Props) => {
       <Footer />
       <Social />
       <Email />
+        
+      <Sidebar side="right">
+        <Chatbot />
+        
+      </Sidebar>
     </div>
   );
 };
